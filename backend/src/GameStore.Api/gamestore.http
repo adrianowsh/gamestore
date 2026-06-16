@@ -1,0 +1,33 @@
+GET http://localhost:5000/games HTTP/1.1
+
+###
+GET http://localhost:5000/games/gam_019ea4fb-e8f9-7193-a165-35ff42ae89cf
+
+### 
+POST http://localhost:5000/games
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Street Fighter V",
+    "genre": "Fighting",
+    "price": 59.99,
+    "releaseDate": "2017-03-03T00:00:00"
+}
+
+
+###
+PUT http://localhost:5000/games/gam_019ea4fb-e8f9-7193-a165-35ff42ae89cf
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Street Fighter V: Champion Edition",
+    "genre": "Fighting",
+    "price": 39.99,
+    "releaseDate": "2020-02-14T00:00:00"
+}
+
+###
+DELETE http://localhost:5000/games/gam_019ea4fb-e8f9-7193-a165-35ff42ae89cf
+Content-Type: application/json
