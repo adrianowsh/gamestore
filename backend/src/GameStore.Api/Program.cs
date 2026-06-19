@@ -1,4 +1,5 @@
 using GameStore.Api.Data;
+using GameStore.Api.Features.Games.GetGames;
 using GameStore.Api.Models.Games;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -21,14 +22,7 @@ app.MapGet("/genres", () => Results.Ok(
     g.Name))));
 
 // GET /games
-app.MapGet("/games", () => Results.Ok(
-    gameStoreData.GetGames().Select(g =>
-        new GameSummaryDto(
-          g.Id,
-          g.Name,
-          g.ReleaseDate)
-        )
-));
+app.MapGetGames(gameStoreData);
 
 // GET /games/{id}
 app.MapGet("/games/{id}", (string id) =>

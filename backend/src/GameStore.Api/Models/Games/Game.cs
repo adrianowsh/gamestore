@@ -14,7 +14,6 @@ public sealed class Game
     public string Description { get; set; } = string.Empty;
 
     [Required]
-    [StringLength(20, MinimumLength = 3)]
     public string GenreId { get; set; } = string.Empty;
 
     [Range(0.01, 1000.00)]

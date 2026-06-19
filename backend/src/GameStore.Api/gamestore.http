@@ -4,7 +4,7 @@ GET http://localhost:5000/games HTTP/1.1
 GET http://localhost:5000/genres HTTP/1.1
 
 ###
-GET http://localhost:5000/games/gam_019ed360-3fe4-79fd-b1b9-c67f39c5bbb3
+GET http://localhost:5000/games/gam_019eddf4-9159-752e-92d1-21f458e2a6ad
 
 ### 
 POST http://localhost:5000/games
@@ -14,25 +14,25 @@ Accept: application/json
 {
     "name": "Mortal Kombat 11",
     "description": "A fighting game developed by NetherRealm Studios",
-    "genre": "Fighting",
+    "genreId": "gen_019eddf3-1a60-7432-832d-fd462c378ae1",
     "price": 59.99,
     "releaseDate": "2017-03-03"
 }
 
 
 ###
-PUT http://localhost:5000/games/gam_019ea4fb-e8f9-7193-a165-35ff42ae89cf
+PUT http://localhost:5000/games/gam_019eddf4-9159-752e-92d1-21f458e2a6ad
 Content-Type: application/json
 Accept: application/json
 
 {
     "name": "Mortal Kombat 11: Ultimate Edition",
-    "genre": "Fighting",
+    "genreId": "gen_019eddf3-1a60-7432-832d-fd462c378ae1",
     "description": "The ultimate edition of the fighting game developed by NetherRealm Studios",
     "price": 39.99,
     "releaseDate": "2020-02-14"
 }
 
 ###
-DELETE http://localhost:5000/games/gam_019ea4fb-e8f9-7193-a165-35ff42ae89cf
+DELETE http://localhost:5000/games/gam_019eddf4-9159-752e-92d1-21f458e2a6ad
 Content-Type: application/json
