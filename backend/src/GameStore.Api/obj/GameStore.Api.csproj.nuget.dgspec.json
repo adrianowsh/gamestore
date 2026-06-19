@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/adriano/repos/gametore/backend/src/GameStore.Api/GameStore.Api.csproj": {}
+    "/home/adriano/repos/gamestore/backend/src/GameStore.Api/GameStore.Api.csproj": {}
   },
   "projects": {
-    "/home/adriano/repos/gametore/backend/src/GameStore.Api/GameStore.Api.csproj": {
+    "/home/adriano/repos/gamestore/backend/src/GameStore.Api/GameStore.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/adriano/repos/gametore/backend/src/GameStore.Api/GameStore.Api.csproj",
+        "projectUniqueName": "/home/adriano/repos/gamestore/backend/src/GameStore.Api/GameStore.Api.csproj",
         "projectName": "GameStore.Api",
-        "projectPath": "/home/adriano/repos/gametore/backend/src/GameStore.Api/GameStore.Api.csproj",
+        "projectPath": "/home/adriano/repos/gamestore/backend/src/GameStore.Api/GameStore.Api.csproj",
         "packagesPath": "/home/adriano/.nuget/packages/",
-        "outputPath": "/home/adriano/repos/gametore/backend/src/GameStore.Api/obj/",
+        "outputPath": "/home/adriano/repos/gamestore/backend/src/GameStore.Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/adriano/.nuget/NuGet/NuGet.Config"
