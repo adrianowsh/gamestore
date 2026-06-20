@@ -1,8 +1,8 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace GameStore.Api.Models.Games;
+namespace GameStore.Api.Features.Games.UpdateGame;
 
-public sealed record CreateGame
+public sealed record UpdateGameDto
 (
     [Required]
     [StringLength(100, MinimumLength = 3)]
@@ -19,4 +19,3 @@ public sealed record CreateGame
     [Required]
     string GenreId
 );
-

@@ -13,6 +13,7 @@ public static class GetGamesEndpoint
                     g.Name,
                     g.ReleaseDate)
             )
-        ));
+        ))
+        .WithName(EndpointNames.GetGames);
     }
 }
