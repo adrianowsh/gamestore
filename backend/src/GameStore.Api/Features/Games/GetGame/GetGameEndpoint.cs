@@ -4,9 +4,9 @@ namespace GameStore.Api.Features.Games.GetGame;
 
 public static class GetGameEndpoint
 {
-    public static void MapGetGame(this IEndpointRouteBuilder app, GameStoreData data)
+    public static void MapGetGame(this IEndpointRouteBuilder app)
     {
-        app.MapGet("/games/{id}", (string id) =>
+        app.MapGet("/{id}", (string id, GameStoreData data) =>
             {
                 var game = data.GetGame(id);
                 if (game is null)

@@ -4,7 +4,7 @@ public sealed class EndpointNames
 {
     public const string GetGames = "GetGames";
     public const string GetGame = "GetGame";
-    public const string CreateGame = "CreateGameDto";
+    public const string CreateGame = "CreateGame";
     public const string UpdateGame = "UpdateGame";
     public const string DeleteGame = "DeleteGame";
 }

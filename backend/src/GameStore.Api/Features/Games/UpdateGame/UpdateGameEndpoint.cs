@@ -5,9 +5,9 @@ namespace GameStore.Api.Features.Games.UpdateGame;
 
 public static class UpdateGameEndpoint
 {
-    public static void MapPutGame(this IEndpointRouteBuilder app, GameStoreData gameStoreData)
+    public static void MapPutGame(this IEndpointRouteBuilder app)
     {
-        app.MapPut("/games/{id}", (string id, UpdateGameDto updatedGame) =>
+        app.MapPut("/{id}", (string id, UpdateGameDto updatedGame, GameStoreData gameStoreData) =>
             {
                 Game? existingGame = gameStoreData.GetGame(id);
 
