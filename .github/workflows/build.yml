@@ -29,10 +29,10 @@ jobs:
         run: dotnet restore GameStore.slnx
 
       - name: Build
-        run: dotnet build GameStore.slnx --configuration Release --no-restore
+        run: dotnet build backend/GameStore.slnx --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test GameStore.slnx --configuration Release --no-restore --no-build
+        run: dotnet test backend/GameStore.slnx --configuration Release --no-restore --no-build
 
       - name: Publish
-        run: dotnet publish GameStore.slnx --configuration Release --no-restore --no-build
+        run: dotnet publish backend/GameStore.slnx --configuration Release --no-restore --no-build
