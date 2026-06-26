@@ -26,13 +26,13 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore
-        run: dotnet restore GameStore.sln
+        run: dotnet restore GameStore.slnx
 
       - name: Build
-        run: dotnet build GameStore.sln --configuration Release --no-restore
+        run: dotnet build GameStore.slnx --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test GameStore.sln --configuration Release --no-restore --no-build
+        run: dotnet test GameStore.slnx --configuration Release --no-restore --no-build
 
       - name: Publish
-        run: dotnet publish GameStore.sln --configuration Release --no-restore --no-build
+        run: dotnet publish GameStore.slnx --configuration Release --no-restore --no-build
