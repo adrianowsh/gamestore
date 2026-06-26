@@ -26,7 +26,7 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore
-        run: dotnet restore GameStore.slnx
+        run: dotnet restore backend/GameStore.slnx
 
       - name: Build
         run: dotnet build backend/GameStore.slnx --configuration Release --no-restore
