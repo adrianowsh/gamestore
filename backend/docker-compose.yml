@@ -1,0 +1,33 @@
+services:
+  gamestore.api:
+    image: ${DOCKER_REGISTRY-}gamestoreapi
+    container_name: gamestore.api
+    build:
+      context: .
+      dockerfile: src/GameStore.Api/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=5000
+      - ASPNETCORE_HTTPS_PORTS=5001
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    depends_on:
+      - gamestore.db
+  
+  gamestore.db:
+    image: mcr.microsoft.com/mssql/server:latest
+    container_name: mssql-server
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=YourStrong@Password123
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql-data:/var/opt/mssql
+    restart: unless-stopped
+
+volumes:
+  mssql-data:   
+      

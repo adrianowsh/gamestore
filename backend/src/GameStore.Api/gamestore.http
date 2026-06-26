@@ -4,7 +4,7 @@ GET http://localhost:5000/games HTTP/1.1
 GET http://localhost:5000/genres HTTP/1.1
 
 ###
-GET http://localhost:5000/games/gam_019ee6b6-8ef1-778f-80d9-5f130d609860
+GET http://localhost:5000/games/gam_019f0136-a376-72ee-8acc-c83ebb0d28fe
 
 ### 
 POST http://localhost:5000/games
@@ -14,7 +14,7 @@ Accept: application/json
 {
     "name": "Mortal Kombat 11",
     "description": "A fighting game developed by NetherRealm Studios",
-    "genreId": "gen_019ee6b5-a483-7efd-a688-bb791f86f478",
+    "genreId": "gen_019f0123-eeb1-7ec5-9dd7-208f84a5a27e",
     "price": 59.99,
     "releaseDate": "2017-03-03"
 }

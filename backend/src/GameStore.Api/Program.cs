@@ -1,12 +1,17 @@
 using GameStore.Api.Data;
 using GameStore.Api.Features.Games;
 using GameStore.Api.Features.Genres;
+using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddSqlite<GameStoreContext>(builder.Configuration.GetConnectionString("Database"));
+builder.Services.AddDbContext<GameStoreContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Database"),
+        sqlOptions => sqlOptions.EnableRetryOnFailure()
+    )
+);
+
 builder.Services.AddValidation();
-builder.Services.AddSingleton<GameStoreData>();
 
 WebApplication app = builder.Build();
 
@@ -17,8 +22,7 @@ app.MapGenres();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MigrationDb();
-    app.SeedData();
+    await app.InitializeDbAsync();
 }
 
 await app.RunAsync();

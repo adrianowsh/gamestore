@@ -3,4 +3,7 @@
     <File Path="src/GameStore.Api/.gitignore" />
     <Project Path="src/GameStore.Api/GameStore.Api.csproj" />
   </Folder>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
 </Solution>

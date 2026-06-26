@@ -1,5 +1,6 @@
 ﻿using GameStore.Api.Data;
 using GameStore.Api.Models.Games;
+using Microsoft.EntityFrameworkCore;
 
 namespace GameStore.Api.Features.Games.CreateGame;
 
@@ -7,9 +8,12 @@ public static class CreateGameEndpoint
 {
     public static void MapCreateGame(this IEndpointRouteBuilder app)
     {
-        app.MapPost("/", (CreateGameDto gameDto, GameStoreData data) =>
+        app.MapPost("/", async (CreateGameDto gameDto, GameStoreContext data) =>
             {
-                Genre? genre = data.GetGenres().FirstOrDefault(g => g.Id == gameDto.GenreId);
+                var genre = await data.Genres
+                                .AsNoTracking()
+                                .FirstOrDefaultAsync(g => g.Id == gameDto.GenreId);
+
                 if (genre is null)
                 {
                     return Results.BadRequest($"Genre with ID '{gameDto.GenreId}' does not exist.");
@@ -22,7 +26,9 @@ public static class CreateGameEndpoint
                         gameDto.Price,
                         gameDto.ReleaseDate);
 
-                data.AddGame(newGame);
+                await data.Games.AddAsync(newGame);
+
+                await data.SaveChangesAsync();
 
                 return Results.CreatedAtRoute(
                     nameof(EndpointNames.GetGame),
