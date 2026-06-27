@@ -35,6 +35,20 @@ public static class DataExtensions
     public static async Task InitializeDbAsync(this WebApplication app)
     {
         await app.MigrationDbAsync();
+        if (app.Logger.IsEnabled(LogLevel.Information))
+        {
+            app.Logger.LogInformation("{Guid} - {message}", Guid.NewGuid(), "Migration started...");
+        }
+
         await app.SeedDataAsync();
+        if (app.Logger.IsEnabled(LogLevel.Information))
+        {
+            app.Logger.LogInformation("{Guid} - {message}", Guid.NewGuid(), "Seed started...");
+        }
+
+        if (app.Logger.IsEnabled(LogLevel.Information))
+        {
+            app.Logger.LogInformation("{Guid} - {message}", Guid.NewGuid(), "Database is ready!");
+        }
     }
 }

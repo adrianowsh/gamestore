@@ -8,7 +8,10 @@ public static class CreateGameEndpoint
 {
     public static void MapCreateGame(this IEndpointRouteBuilder app)
     {
-        app.MapPost("/", async (CreateGameDto gameDto, GameStoreContext data) =>
+        app.MapPost("/", async (
+                CreateGameDto gameDto,
+                GameStoreContext data,
+                ILogger<Program> logger) =>
             {
                 var genre = await data.Genres
                                 .AsNoTracking()
@@ -29,6 +32,8 @@ public static class CreateGameEndpoint
                 await data.Games.AddAsync(newGame);
 
                 await data.SaveChangesAsync();
+
+                logger.LogInformation("Game '{GameName}' with ID '{GameId}' created successfully.", newGame.Name, newGame.Id);
 
                 return Results.CreatedAtRoute(
                     nameof(EndpointNames.GetGame),
