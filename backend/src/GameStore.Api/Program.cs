@@ -1,10 +1,14 @@
 using GameStore.Api.Data;
 using GameStore.Api.Features.Games;
 using GameStore.Api.Features.Genres;
+using GameStore.Api.Middlewares;
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddProblemDetails()
+                .AddExceptionHandler<GlobalExceptionHandler>();
 
 builder.Services.AddDbContext<GameStoreContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Database"),
@@ -36,5 +40,8 @@ if (app.Environment.IsDevelopment())
 {
     await app.InitializeDbAsync();
 }
+
+app.UseExceptionHandler();
+app.UseStatusCodePages();
 
 await app.RunAsync();
